@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('platforms', function (Blueprint $table) {
             $table->id();                             // Primary key
-            $table->string('name')->unique();         // Category name
-            $table->text('description')->nullable();  // Category description
+            $table->string('name')->unique();         // Platform name
+            $table->text('description')->nullable();  // Platform description
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('platforms');
     }
 };
