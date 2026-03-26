@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum('status', ['not_started', 'in_progress', 'completed', 'on_hold'])->default('not_started'); // Trackable status
             $table->integer('progress_percentage')->default(0);                         // 0 to 100 percentage of trackable completion
             $table->dateTime('completion_date')->nullable();                            // Date & time when the trackable was completed
+            $table->text('notes')->nullable();                                          // User notes
 
             $table->timestamps();                                                       // Default Laravel timestamps
 

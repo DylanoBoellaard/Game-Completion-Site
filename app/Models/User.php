@@ -29,4 +29,44 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // User can have many games
+    public function games()
+    {
+        return $this->belongsToMany(Game::class, 'user_games')
+                    ->withPivot('status', 'completion_date', 'playtime', 'notes')
+                    ->withTimestamps();
+    }
+
+    // User can have many quests
+    public function quests()
+    {
+        return $this->belongsToMany(Quest::class, 'user_quests')
+                    ->withPivot('status', 'progress_percentage', 'completion_date', 'notes')
+                    ->withTimestamps();
+    }
+
+    // User can have many trackables
+    public function trackables()
+    {
+        return $this->belongsToMany(Trackable::class, 'user_trackables')
+                    ->withPivot('status', 'progress_percentage', 'completion_date', 'notes')
+                    ->withTimestamps();
+    }
+
+    // User can have many user_games, user_quests, and user_trackables for additional pivot data access
+    public function userGames()
+    {
+        return $this->hasMany(UserGame::class);
+    }
+
+    public function userQuests()
+    {
+        return $this->hasMany(UserQuest::class);
+    }
+
+    public function userTrackables()
+    {
+        return $this->hasMany(UserTrackable::class);
+    }
 }

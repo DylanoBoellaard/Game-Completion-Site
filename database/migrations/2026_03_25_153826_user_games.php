@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum('status', ['not_started', 'in_progress', 'completed', 'on_hold'])->default('not_started'); // Game status
             $table->dateTime('completion_date')->nullable();                              // Date & time when the game was completed
             $table->integer('playtime')->default(0);                                      // Total playtime in minutes
+            $table->text('notes')->nullable();                                  // User notes
 
             $table->timestamps();                                                         // Default Laravel timestamps
 

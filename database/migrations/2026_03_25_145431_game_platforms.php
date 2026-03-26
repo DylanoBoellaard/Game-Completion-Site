@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('game_platform', function (Blueprint $table) {
+        Schema::create('game_platforms', function (Blueprint $table) {
             $table->id();                                       // Primary key
             $table->foreignId('game_id')->constrained('games')->onDelete('cascade'); // Foreign key to games table
             $table->foreignId('platform_id')->constrained('platforms')->onDelete('cascade'); // Foreign key to platforms table
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('game_platform');
+        Schema::dropIfExists('game_platforms');
     }
 };
