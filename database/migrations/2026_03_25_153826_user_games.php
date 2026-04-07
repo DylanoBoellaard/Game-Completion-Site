@@ -16,10 +16,10 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->nullable(); // Link to user (nullable for future multi-user support)
             $table->foreignId('game_id')->constrained()->onDelete('cascade');             // Link to games table
 
-            $table->enum('status', ['not_started', 'in_progress', 'completed', 'on_hold'])->default('not_started'); // Game status
+            $table->enum('status', ['Not started', 'In progress', 'Completed', 'On hold'])->default('not_started'); // Game status
             $table->dateTime('completion_date')->nullable();                              // Date & time when the game was completed
             $table->integer('playtime')->default(0);                                      // Total playtime in minutes
-            $table->text('notes')->nullable();                                  // User notes
+            $table->text('notes')->nullable();                                            // User notes
 
             $table->timestamps();                                                         // Default Laravel timestamps
 

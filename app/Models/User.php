@@ -31,7 +31,7 @@ class User extends Authenticatable
     }
 
     // User can have many games
-    public function games()
+    public function game()
     {
         return $this->belongsToMany(Game::class, 'user_games')
                     ->withPivot('status', 'completion_date', 'playtime', 'notes')
@@ -39,7 +39,7 @@ class User extends Authenticatable
     }
 
     // User can have many quests
-    public function quests()
+    public function quest()
     {
         return $this->belongsToMany(Quest::class, 'user_quests')
                     ->withPivot('status', 'progress_percentage', 'completion_date', 'notes')
@@ -47,7 +47,7 @@ class User extends Authenticatable
     }
 
     // User can have many trackables
-    public function trackables()
+    public function trackable()
     {
         return $this->belongsToMany(Trackable::class, 'user_trackables')
                     ->withPivot('status', 'progress_percentage', 'completion_date', 'notes')
@@ -55,17 +55,17 @@ class User extends Authenticatable
     }
 
     // User can have many user_games, user_quests, and user_trackables for additional pivot data access
-    public function userGames()
+    public function userGame()
     {
         return $this->hasMany(UserGame::class);
     }
 
-    public function userQuests()
+    public function userQuest()
     {
         return $this->hasMany(UserQuest::class);
     }
 
-    public function userTrackables()
+    public function userTrackable()
     {
         return $this->hasMany(UserTrackable::class);
     }

@@ -20,13 +20,13 @@ class UserQuest extends Model
     ];
 
     // UserQuest belongs to a quest
-    public function quests()
+    public function quest()
     {
         return $this->belongsTo(Quest::class);
     }
 
     // UserQuest belongs to a user
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

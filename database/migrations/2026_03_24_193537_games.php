@@ -15,16 +15,8 @@ return new class extends Migration
             $table->id();                                       // Primary key
             $table->string('name');                             // Game name
             $table->text('description')->nullable();            // Game description
+            $table->date('release_date')->nullable();          // Release date
             $table->timestamps();
-            
-            /*
-            $table->enum('status', ['not_started', 'in_progress', 'completed', 'on_hold'])->default('not_started'); // Game status
-            //$table->boolean('is_completed')->default(false);    // Whether the game is completed or not (OLD --- IGNORE --- USE STATUS)
-            $table->dateTime('completion_date')->nullable();    // Date & time when the game was completed
-            $table->integer('playtime')->default(0);            // Total playtime in minutes
-            $table->foreignId('user_id')->constrained()->onDelete('cascade')->nullable(); // Link to user (nullable for future multi-user support)
-            OLD --- IGNORE --- SINGLE USER SETUP
-            */
         });
     }
 

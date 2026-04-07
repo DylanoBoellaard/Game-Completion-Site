@@ -20,13 +20,13 @@ class UserTrackable extends Model
     ];
 
     // UserTrackable belongs to a trackable
-    public function trackables()
+    public function trackable()
     {
         return $this->belongsTo(Trackable::class);
     }
 
     // UserTrackable belongs to a user
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

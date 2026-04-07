@@ -20,13 +20,13 @@ class UserGame extends Model
     ];
 
     // UserGame belongs to a game
-    public function games()
+    public function game()
     {
         return $this->belongsTo(Game::class);
     }
 
     // UserGame belongs to a user
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

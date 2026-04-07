@@ -8,5 +8,8 @@
 </head>
 <body>
     <h1>Welcome page</h1>
+
+<!-- Route to the games index page -->
+<a href="{{ route('games.index') }}">Go to the games index page</a>
 </body>
 </html>

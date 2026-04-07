@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sideQuests', function (Blueprint $table) {
-            $table->id();                                       // Primary key
+            $table->id();                                       // Database auto-incrementing primary key
+            $table->integer('quest_id');                        // Unique identifier for the side quest (shared primary key)
             $table->foreignId('game_id')->constrained('games')->onDelete('cascade'); // Foreign key to games table (shared primary key)
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->nullable(); // Link to user (nullable for future multi-user support)
             $table->string('name');                             // Side quest name
