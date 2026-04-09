@@ -14,9 +14,12 @@
     <div class="grid_container">
         @foreach ($gameDetails as $item)
         <div class="container">
-            <a href="{{ route('games.show', $item['user_game']->id) }}">
+            <a href="{{ route('games.details', $item['user_game']) }}">
                 <div class="game_thumbnail">
-                    <!-- // Display game name -->
+                    <!-- Display game name
+                            .auto-scale uses the fitty.js library to scale the text to fit the container
+                            .fit is neccessary to increase performance of the fitty.js library
+                     -->
                     <h3 class="auto-scale fit">{{ $item['game']->name }}</h3>
 
                     <!-- Game thumbnail image -->

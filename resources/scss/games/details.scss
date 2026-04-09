@@ -1,0 +1,49 @@
+// TO DO: Move to a separate file and import into details.scss
+.progress_bar {
+    width: 100%;
+    height: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    position: relative;
+
+    p {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        color: #333;
+        text-align: center;
+        line-height: 20px;
+        z-index: 1;
+        position: relative;
+    }
+
+    .bar {
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+        position: absolute;
+        top: 0;
+        background-color: #76c7c0;
+        transition: width 0.5s ease-in-out;
+        border-radius: 10px;
+
+        .fill {
+            height: 100%;
+            background-color: #007a7a;
+            border-radius: 10px;
+        }
+    }
+}
+
+// TO DO: Add media queries for responsiveness
+// TO DO: Add better styling (grid, animations, etc.)
+body {
+    #game_details {
+        background: #800080;
+        background: linear-gradient(
+            90deg,
+            rgba(128, 0, 128, 1) 0%,
+            rgba(75, 0, 130, 0.9) 100%
+        );
+    }
+}

@@ -25,6 +25,12 @@ class UserTrackable extends Model
         return $this->belongsTo(Trackable::class);
     }
 
+    // UserQuest belongs to a quest
+    public function quest()
+    {
+        return $this->belongsTo(Quest::class);
+    }
+
     // UserTrackable belongs to a user
     public function user()
     {
