@@ -103,6 +103,9 @@ class GameController extends Controller
         // All quests combined (main + side)
         $allQuests = $userQuests->sortByDesc('created_at')->take(5);
 
+        // All trackables combined (achievements + collectables + secrets)
+        $allTrackables = $userTrackables->sortByDesc('created_at')->take(5);
+
         // Split trackables into achievements, collectables, and secrets
         // TO DO: Apply quest type filter method (SQL filtering) to achievements, collectables, and secrets for better performance
         $achievements = $userTrackables
@@ -143,6 +146,7 @@ class GameController extends Controller
             'achievements',
             'collectables',
             'secrets',
+            'allTrackables',
             'mainQuestProgress',
             'sideQuestProgress',
             'allQuestsProgress',

@@ -1,49 +1,114 @@
 // TO DO: Move to a separate file and import into details.scss
 .progress_bar {
-    width: 100%;
-    height: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 15px 20px 15px;
 
-    p {
-        margin: 0;
-        padding: 0;
-        font-size: 14px;
-        color: #333;
-        text-align: center;
-        line-height: 20px;
-        z-index: 1;
-        position: relative;
+    .progress_text {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 6px;
+
+        p {
+            margin: 0;
+            font-size: 14px;
+        }
     }
 
     .bar {
-        height: 100%;
+        height: 20px;
         width: 100%;
-        z-index: 0;
-        position: absolute;
-        top: 0;
-        background-color: #76c7c0;
-        transition: width 0.5s ease-in-out;
+        background-color: #e5e7eb;
         border-radius: 10px;
+        overflow: hidden; // Keeps fill inside the bar / rounded corners
 
         .fill {
             height: 100%;
-            background-color: #007a7a;
+            background-color: linear-gradient(90deg,rgba(0, 0, 0, 1) 0%, rgba(74, 74, 74, 1) 100%); // BLACK GRADIENT - Also handled in progress-bar component
             border-radius: 10px;
+            transition: width 0.5s ease-in-out;
         }
     }
 }
 
-// TO DO: Add media queries for responsiveness
-// TO DO: Add better styling (grid, animations, etc.)
+/*  TO DO: Add media queries for responsiveness
+    TO DO: Add better styling (grid, animations, etc.)
+    TO DO: Change game_details to have accents and sparkling animations based on completion percentage:
+                DONE - If game is 25% completed, change accents to bronze with bronze sparkling animations.
+                DONE - If game is 50% completed, change accents to silver with silver sparkling animations.
+                DONE - If game is 100% completed, change accents to gold with gold sparkling animations.
+            If a game can be above 100% completion, change accents to a platinum accent with platinum sparkling animations. (or diamond colours?)
+*/
 body {
-    #game_details {
-        background: #800080;
-        background: linear-gradient(
-            90deg,
-            rgba(128, 0, 128, 1) 0%,
-            rgba(75, 0, 130, 0.9) 100%
-        );
+    .container {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        background-color: #333;
+
+        .card_trackables {
+            background-color: #ffffff;
+            border-radius: 10px;
+
+            .title_section {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                margin: 15px 0px 0px 15px;
+
+                svg {
+                    padding: 0.5rem;
+                    background-color: #dfdfdf;
+                    border-radius: 10px;
+                }
+
+                .column {
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 10px;
+
+                    h2 {
+                        margin: 0;
+                        font-size: 1.2rem;
+                    }
+                    p {
+                        margin: 0;
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+        }
+
+        #game_details {
+            grid-area: 1 / 1 / 2 / 4;
+            background: #800080;
+            background: linear-gradient(
+                90deg,
+                rgba(128, 0, 128, 1) 0%,
+                rgba(75, 0, 130, 0.9) 100%
+            );
+        }
+        #main_quests {
+            grid-area: 2 / 1 / 3 / 2;
+        }
+        #side_quests {
+            grid-area: 2 / 2 / 3 / 3;
+        }
+        #all_quests {
+            grid-area: 2 / 3 / 3 / 4;
+        }
+        #achievements {
+            grid-area: 3 / 1 / 4 / 2;
+        }
+        #collectables {
+            grid-area: 3 / 2 / 4 / 3;
+        }
+        #secrets {
+            grid-area: 3 / 3 / 4 / 4;
+        }
     }
 }

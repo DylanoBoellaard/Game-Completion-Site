@@ -1,0 +1,26 @@
+<?php
+
+namespace App\View\Components;
+
+use Closure;
+use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
+
+class ItemRow extends Component
+{
+    public $title;
+    public $status;
+    public function __construct($title, $status = null)
+    {
+        $this->title = $title;
+        $this->status = $status;
+    }
+
+    /**
+     * Get the view / contents that represent the component.
+     */
+    public function render(): View|Closure|string
+    {
+        return view('components.item-row');
+    }
+}
