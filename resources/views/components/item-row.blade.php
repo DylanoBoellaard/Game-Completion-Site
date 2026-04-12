@@ -1,6 +1,12 @@
 <div class="card_items">
-    <p>{{ $title }}</p>
-    <p class="status-{{ str_replace('_', '-', $status) }}">
-        {{ $status }}
-    </p>
+    <div class="row">
+        <!-- Users won't know what colours mean what status. Add an info table somewhere? -->
+        <div class="statusIcon status-{{ str_replace('_', '-', $status) }}"></div>
+
+        <p @class([
+            'strikethrough' => $status === 'completed'
+        ])>
+            {{ $title }}
+        </p>
+    </div>
 </div>
