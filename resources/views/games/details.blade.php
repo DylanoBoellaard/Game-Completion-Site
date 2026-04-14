@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Details</title>
-    @vite(['resources/scss/games/details.scss', 'resources/scss/app.scss'])
+    @vite(['resources/scss/games/details.scss', 'resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -33,12 +33,14 @@
                     </svg>
                 </x-slot>
             </x-card-game-details>
-            <x-progress-bar
-                label="Overall Completion"
-                :value="$allQuests->where('status', 'completed')->count() + $allTrackables->where('status', 'completed')->count()"
-                :total="$allQuests->count() + $allTrackables->count()"
-                :percentage="$totalGameProgress">
-            </x-progress-bar>
+            <x-sparkles :percentage="$totalGameProgress">
+                <x-progress-bar
+                    label="Overall Completion"
+                    :value="$allQuests->where('status', 'completed')->count() + $allTrackables->where('status', 'completed')->count()"
+                    :total="$allQuests->count() + $allTrackables->count()"
+                    :percentage="$totalGameProgress">
+                </x-progress-bar>
+            </x-sparkles>
         </div>
 
         <!-- User tracked cards -->
@@ -56,11 +58,13 @@
                 </x-slot>
             </x-card-header>
 
-            <x-progress-bar
-                label="Progress"
-                :value="$mainQuests->where('status', 'completed')->count()"
-                :total="$mainQuests->count()"
-                :percentage="$mainQuestProgress" />
+            <x-sparkles :percentage="$mainQuestProgress">
+                <x-progress-bar
+                    label="Progress"
+                    :value="$mainQuests->where('status', 'completed')->count()"
+                    :total="$mainQuests->count()"
+                    :percentage="$mainQuestProgress" />
+            </x-sparkles>
 
             @foreach ($mainQuests as $uq)
             <x-item-row
@@ -81,11 +85,13 @@
                 </x-slot>
             </x-card-header>
 
-            <x-progress-bar
-                label="Side Quests Progress"
-                :value="$sideQuests->where('status', 'completed')->count()"
-                :total="$sideQuests->count()"
-                :percentage="$sideQuestProgress" />
+            <x-sparkles :percentage="$sideQuestProgress">
+                <x-progress-bar
+                    label="Side Quests Progress"
+                    :value="$sideQuests->where('status', 'completed')->count()"
+                    :total="$sideQuests->count()"
+                    :percentage="$sideQuestProgress" />
+            </x-sparkles>
 
             @foreach ($sideQuests as $uq)
             <x-item-row
@@ -122,12 +128,13 @@
                 </x-slot>
             </x-card-header>
 
-
-            <x-progress-bar
-                label="Total Quests Progress"
-                :value="$allQuests->where('status', 'completed')->count()"
-                :total="$allQuests->count()"
-                :percentage="$allQuestsProgress" />
+            <x-sparkles :percentage="$allQuestsProgress">
+                <x-progress-bar
+                    label="Total Quests Progress"
+                    :value="$allQuests->where('status', 'completed')->count()"
+                    :total="$allQuests->count()"
+                    :percentage="$allQuestsProgress" />
+            </x-sparkles>
 
             @foreach ($allQuests as $uq)
             <x-item-row
@@ -146,11 +153,13 @@
                 </x-slot>
             </x-card-header>
 
-            <x-progress-bar
-                label="Achievements Progress"
-                :value="$achievements->where('status', 'completed')->count()"
-                :total="$achievements->count()"
-                :percentage="$achievementProgress" />
+            <x-sparkles :percentage="$achievementProgress">
+                <x-progress-bar
+                    label="Achievements Progress"
+                    :value="$achievements->where('status', 'completed')->count()"
+                    :total="$achievements->count()"
+                    :percentage="$achievementProgress" />
+            </x-sparkles>
 
             @foreach ($achievements as $ut)
             <x-item-row
@@ -169,11 +178,13 @@
                 </x-slot>
             </x-card-header>
 
-            <x-progress-bar
-                label="Collectables Progress"
-                :value="$collectables->where('status', 'completed')->count()"
-                :total="$collectables->count()"
-                :percentage="$collectableProgress" />
+            <x-sparkles :percentage="$collectableProgress">
+                <x-progress-bar
+                    label="Collectables Progress"
+                    :value="$collectables->where('status', 'completed')->count()"
+                    :total="$collectables->count()"
+                    :percentage="$collectableProgress" />
+            </x-sparkles>
 
             @foreach ($collectables as $ut)
             <x-item-row
@@ -192,11 +203,13 @@
                 </x-slot>
             </x-card-header>
 
-            <x-progress-bar
-                label="Secrets Progress"
-                :value="$secrets->where('status', 'completed')->count()"
-                :total="$secrets->count()"
-                :percentage="$secretProgress" />
+            <x-sparkles :percentage="$secretProgress">
+                <x-progress-bar
+                    label="Secrets Progress"
+                    :value="$secrets->where('status', 'completed')->count()"
+                    :total="$secrets->count()"
+                    :percentage="$secretProgress" />
+            </x-sparkles>
 
             @foreach ($secrets as $ut)
             <x-item-row
