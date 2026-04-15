@@ -1,0 +1,149 @@
+.sparkles {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+
+    .sparkles-container {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    .sparkles-text {
+        position: relative;
+        z-index: 1;
+        font-weight: bold;
+    }
+}
+
+.sparkle {
+    position: absolute;
+    display: block;
+
+    @media (prefers-reduced-motion: no-preference) {
+        animation: comeInOut 700ms forwards;
+    }
+
+    svg {
+        display: block;
+
+        @media (prefers-reduced-motion: no-preference) {
+            animation: spin 1000ms linear;
+        }
+    }
+}
+
+@keyframes comeInOut {
+    0% { transform: scale(0); }
+    50% { transform: scale(1); }
+    100% { transform: scale(0); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(180deg); }
+}
+
+// Optional shimmering animations
+@keyframes shimmer {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 207, 189, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(0, 207, 189, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0, 207, 189, 0.3);
+    }
+}
+
+@keyframes shimmerBronze {
+    0% {
+        box-shadow: 0 0 10px rgba(205, 127, 50, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(205, 127, 50, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(205, 127, 50, 0.3);
+    }
+}
+
+@keyframes shimmerSilver {
+    0% {
+        box-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(192, 192, 192, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
+    }
+}
+
+@keyframes shimmerGold {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+}
+
+/* Base */
+[class*="tier-"] {
+    transition: all 0.4s ease;
+}
+
+/* 🟤 Bronze */
+.tier-bronze {
+    border: 1px solid #cd7f32;
+    animation: shimmerBronze 3s infinite linear;
+}
+
+/* ⚪ Silver */
+.tier-silver {
+    border: 1px solid #c0c0c0;
+    box-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
+    animation: shimmerSilver 3s infinite linear;
+}
+
+/* 🟡 Gold */
+.tier-gold {
+    border: 1px solid gold;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    animation: shimmerGold 3s infinite linear;
+    h1 {
+        text-shadow: 0 0 6px rgba(255, 215, 0, 0.8);
+    }
+}
+
+/* 🔷 Platinum */
+.tier-platinum {
+    border: 1px solid #00cfbd;
+    box-shadow: 0 0 20px rgba(0, 207, 189, 0.7);
+    animation: shimmer 3s infinite linear;
+    h1 {
+        text-shadow: 0 0 10px rgba(0, 207, 189, 1);
+    }
+}
+
+// Old sparkle colors (if needed for specific elements)
+.sparkle-gold {
+    fill: rgba(255, 215, 0, 1);
+}
+
+.sparkle-silver {
+    fill: rgba(192, 192, 192, 1);
+}
+
+.sparkle-bronze {
+    fill: rgba(205, 127, 50, 1);
+}
+
+.sparkle-platinum {
+    fill: rgba(0, 207, 189, 1);
+}
